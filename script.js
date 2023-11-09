@@ -11,6 +11,6 @@ grid.classList.add("grid");
 grid.style.width = gridWidth + 'px';
 grid.style.height = gridHeight + 'px';
 
-for (let i = 0; i < gridArea-1; i++){
+for (let i = 0; i < gridArea; i++){
     container.appendChild(grid.cloneNode(true));
 }
