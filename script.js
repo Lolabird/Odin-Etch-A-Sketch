@@ -109,8 +109,8 @@ function randomizeColor() {
 function tintColor(value) {
     let num = value.match(/\d+/g);
     r = +num[0] + (0.25 * +num[0]);
-    g = +num[1] + (0.25 * +num[0]);
-    b = +num[2] + (0.25 * +num[0]);
+    g = +num[1] + (0.25 * +num[1]);
+    b = +num[2] + (0.25 * +num[2]);
 
     return`rgb(${r},${g},${b})`;
 }
