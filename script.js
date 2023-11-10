@@ -82,9 +82,8 @@ function rgbColor() {
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
 
-    let rgbCol = "rgb(" + r + "," + g+ "," + b +")";
+    return `rgb(${r},${g},${b})`;
 
-    return rgbCol;
 }
 
 createGrid();
