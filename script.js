@@ -54,7 +54,7 @@ function changeColor() {
 
     switch (buttonID) {
         case "rgbColor":
-            colorValue = "red";
+            colorValue = rgbColor();
             break;
         case "whiteColor":
             colorValue = "white";
@@ -75,6 +75,16 @@ function changeColor() {
             colorValue = "black";
             break;
     }
+}
+
+function rgbColor() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    let rgbCol = "rgb(" + r + "," + g+ "," + b +")";
+
+    return rgbCol;
 }
 
 createGrid();
