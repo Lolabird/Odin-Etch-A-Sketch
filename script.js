@@ -73,7 +73,7 @@ function createGrid() {
 
 
 function getGridDimensions() {   
-    gridSlider.value = 16;
+    //gridSlider.value = 16;
     container.style.backgroundColor = "#ffffff";
     backColorPicker.value = "#ffffff";
     colorPicker.value = "#000000";
