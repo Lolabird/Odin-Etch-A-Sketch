@@ -7,7 +7,10 @@ const buttons = document.querySelectorAll("button");
 let colorValue = "black";
 let numGrid = gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
+//the next few variables test 
 let isRgb;
+let isTint;
+let isShade;    
 
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
@@ -64,9 +67,6 @@ function changeColor() {
     }
 
     switch (buttonID) {
-        case "rgbColor":
-            colorValue = rgbColor();
-            break;
         case "whiteColor":
             colorValue = "white";
             break;
