@@ -2,19 +2,17 @@ let numGrid = 16; //will use this later to prompt user
 //need to figure out the wrapping issue
 const container = document.querySelector(".container");
 const conWidth = container.clientWidth;
-const conHeight = container.clientHeight
 const grid = document.createElement("div");
 const gridSlider = document.querySelector("#gridSlider");
 
 
 function createGrid() {
     const gridArea = numGrid ** 2;
-    const gridWidth = conWidth / numGrid;
-    const gridHeight = conHeight / numGrid;
+    const gridWidth = 100 / numGrid;
 
     grid.classList.add("grid");
-    grid.style.width = gridWidth + 'px';
-    grid.style.height = gridHeight + 'px';
+    grid.style.width = gridWidth + '%';
+    grid.style.height = gridWidth + '%';
 
     for (let i = 0; i < gridArea; i++){
         container.appendChild(grid.cloneNode(true));
@@ -27,7 +25,6 @@ function createGrid() {
     });
 
     gridSlider.addEventListener("change", getGridDimensions);
-
 }
 
 
