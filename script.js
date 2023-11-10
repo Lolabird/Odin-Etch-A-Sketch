@@ -2,8 +2,9 @@ const container = document.querySelector(".container");
 const conWidth = container.clientWidth;
 const grid = document.createElement("div");
 const gridSlider = document.querySelector("#gridSlider");
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".pen");
 const colorPicker = document.querySelector("#custom-color");
+const reset = document.querySelector("#reset");
 let colorValue = "black";
 let numGrid = gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
@@ -20,6 +21,9 @@ let isWhite;
 let isErase;
 
 
+createGrid();
+
+
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
 });
@@ -30,6 +34,8 @@ colorPicker.addEventListener("click", colorGrid);
 colorPicker.addEventListener("change", changeColor);
 colorPicker.addEventListener("input", changeColor);
 colorPicker.addEventListener("click", changeColor);
+
+reset.addEventListener("click", getGridDimensions);
 
 
 function createGrid() {
@@ -191,6 +197,3 @@ function makeTransparent(value) {
     
     return num;
 }
-
-
-createGrid();
