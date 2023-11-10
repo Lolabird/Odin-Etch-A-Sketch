@@ -1,6 +1,7 @@
 body{
     background-color: #333;
-    color: #eee
+    color: #eee;
+    text-align: center;
 }
 .area{
     display: flex;
@@ -15,6 +16,7 @@ body{
     width: 500px;
     display: flex;
     flex-wrap: wrap;
+    background: white;
 }
 
 .user-input {
