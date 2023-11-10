@@ -7,6 +7,7 @@ const buttons = document.querySelectorAll("button");
 let colorValue = "black";
 let numGrid = gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
+let isRgb;
 
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
@@ -46,11 +47,21 @@ function getGridDimensions() {
 }
 
 function colorGrid() {
-    this.style.background = colorValue;
+    if (isRgb) {
+        this.style.background = rgbColor();
+    } else {
+        this.style.background = colorValue;
+    }
 }
 
 function changeColor() {
     const buttonID = this.id;
+
+    if (buttonID === "rgbColor") {
+        isRgb = true;
+    } else {
+        isRgb = false;
+    }
 
     switch (buttonID) {
         case "rgbColor":
