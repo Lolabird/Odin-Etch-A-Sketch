@@ -51,7 +51,9 @@ function getGridDimensions() {
 
 function colorGrid() {
     if (isRgb) {
-        this.style.background = rgbColor();
+        this.style.background = randomizeColor();
+    } else if (isTint) {
+
     } else {
         this.style.background = colorValue;
     }
@@ -64,6 +66,12 @@ function changeColor() {
         isRgb = true;
     } else {
         isRgb = false;
+    }
+
+    if (buttonID === "tint") {
+        isTint = true;
+    } else {
+        isTint = false
     }
 
     switch (buttonID) {
@@ -88,7 +96,7 @@ function changeColor() {
     }
 }
 
-function rgbColor() {
+function randomizeColor() {
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
