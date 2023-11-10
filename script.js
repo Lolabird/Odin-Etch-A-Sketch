@@ -4,6 +4,7 @@ const conWidth = container.clientWidth;
 const grid = document.createElement("div");
 const gridSlider = document.querySelector("#gridSlider");
 const buttons = document.querySelectorAll("button");
+const colorPicker = document.querySelector("#custom-color");
 let colorValue = "black";
 let numGrid = gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
@@ -13,10 +14,14 @@ let isTint;
 let isShade;    
 let isOpaque;
 let isTrans;
+let isBlack;
+let isWhite;
+let isErase;
 
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
 });
+colorPicker.addEventListener("input", colorGrid);
 
 
 function createGrid() {
@@ -54,17 +59,24 @@ function getGridDimensions() {
 
 function colorGrid() {
     if (isRgb) {
-        this.style.background = randomizeColor();
+        this.style.backgroundColor = randomizeColor();
     } else if (isTint) {
-        this.style.background = tintColor(this.style.background);
+        this.style.backgroundColor = tintColor(this.style.backgroundColor);
     } else if (isShade) {
-        this.style.background = shadeColor(this.style.background);
+        this.style.backgroundColor = shadeColor(this.style.backgroundColor);
     } else if (isOpaque){
         this.style.opacity = makeOpaque(this.style.opacity);
     } else if (isTrans) {
         this.style.opacity = makeTransparent(this.style.opacity);
+    } else if (isBlack) {
+        this.style.backgroundColor = "rgb(0, 0, 0)";
+    } else if (isWhite) {
+        this.style.backgroundColor = "rgb(255, 255, 255)";
+    } else if (isErase) {
+        this.style.backgroundColor = "";
     } else {
-        this.style.background = colorValue;
+        //this.style.backgroundColor = colorPicker.value;
+        this.style.background = colorPicker.value;
     }
 }
 
@@ -101,16 +113,22 @@ function changeColor() {
         isTrans = false
     }
 
-    switch (buttonID) {
-        case "whiteColor":
-            colorValue = "rgb(255, 255, 255)";
-            break;
-        case "erase": 
-            colorValue = "transparent";
-            break;
-        default:
-            colorValue = "rgb(0, 0, 0)";
-            break;
+    if (buttonID === "whiteColor") {
+        isWhite = true;
+    } else {
+        isWhite = false
+    }
+
+    if (buttonID === "blackColor") {
+        isBlack = true;
+    } else {
+        isBlack = false
+    }
+
+    if (buttonID === "erase") {
+        isErase = true;
+    } else {
+        isErase = false
     }
 }
 
@@ -159,5 +177,5 @@ function makeTransparent(value) {
     
     return num;
 }
+
 createGrid();
-//setGridListeners();
