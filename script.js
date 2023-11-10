@@ -21,15 +21,13 @@ function createGrid() {
     const gridItems = document.querySelectorAll(".grid");
 
     gridItems.forEach((item) => {
-        item.addEventListener("mouseover", () => {
-            console.log("Sup!");
-        });
+        item.addEventListener("mouseover", colorGrid);
     });
 
 }
 
 function colorGrid() {
-    container.style.background = "blue";
+    this.style.background = "blue";
 }
 
 
