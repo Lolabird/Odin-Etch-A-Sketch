@@ -5,6 +5,7 @@ const gridSlider = document.querySelector("#gridSlider");
 const buttons = document.querySelectorAll(".pen");
 const colorPicker = document.querySelector("#custom-color");
 const reset = document.querySelector("#reset");
+const backColorPicker = document.querySelector("#back-col-picker")
 let colorValue = "black";
 let numGrid = gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
@@ -23,7 +24,6 @@ let isErase;
 
 createGrid();
 
-
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
 });
@@ -35,7 +35,16 @@ colorPicker.addEventListener("change", changeColor);
 colorPicker.addEventListener("input", changeColor);
 colorPicker.addEventListener("click", changeColor);
 
+backColorPicker.addEventListener("change", pickBackground);
+backColorPicker.addEventListener("input", pickBackground);
+//backColorPicker.addEventListener("click", pickBackground);
+
 reset.addEventListener("click", getGridDimensions);
+
+
+function pickBackground() {
+    container.style.backgroundColor = backColorPicker.value;
+}
 
 
 function createGrid() {
@@ -63,7 +72,12 @@ function createGrid() {
 }
 
 
-function getGridDimensions() {    
+function getGridDimensions() {   
+    gridSlider.value = 16;
+    container.style.backgroundColor = "#ffffff";
+    backColorPicker.value = "#ffffff";
+    colorPicker.value = "#000000";
+    
     numGrid = gridSlider.value;
     while (container.firstChild) {
         container.removeChild(container.lastChild);
