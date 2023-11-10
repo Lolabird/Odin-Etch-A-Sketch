@@ -1,4 +1,3 @@
-
 const container = document.querySelector(".container");
 const conWidth = container.clientWidth;
 const grid = document.createElement("div");
@@ -8,7 +7,9 @@ const colorPicker = document.querySelector("#custom-color");
 let colorValue = "black";
 let numGrid = gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
-//the next few variables test 
+
+//the next few variables are set to be used to test if 
+//a given button has been clicked
 let isRgb;
 let isTint;
 let isShade;    
@@ -18,10 +19,17 @@ let isBlack;
 let isWhite;
 let isErase;
 
+
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
 });
+
+colorPicker.addEventListener("change", colorGrid);
 colorPicker.addEventListener("input", colorGrid);
+colorPicker.addEventListener("click", colorGrid);
+colorPicker.addEventListener("change", changeColor);
+colorPicker.addEventListener("input", changeColor);
+colorPicker.addEventListener("click", changeColor);
 
 
 function createGrid() {
@@ -57,6 +65,7 @@ function getGridDimensions() {
     createGrid();
 }
 
+
 function colorGrid() {
     if (isRgb) {
         this.style.backgroundColor = randomizeColor();
@@ -75,10 +84,10 @@ function colorGrid() {
     } else if (isErase) {
         this.style.backgroundColor = "";
     } else {
-        //this.style.backgroundColor = colorPicker.value;
-        this.style.background = colorPicker.value;
+        this.style.backgroundColor = colorPicker.value;
     }
 }
+
 
 function changeColor() {
     const buttonID = this.id;
@@ -132,6 +141,7 @@ function changeColor() {
     }
 }
 
+
 function randomizeColor() {
     let r = Math.floor(Math.random() * 255);
     let g = Math.floor(Math.random() * 255);
@@ -139,6 +149,7 @@ function randomizeColor() {
 
     return `rgb(${r},${g},${b})`;
 }
+
 
 function tintColor(value) {
     let num = value.match(/\d+/g);
@@ -149,6 +160,7 @@ function tintColor(value) {
     return`rgb(${r},${g},${b})`;
 }
 
+
 function shadeColor(value) {
     let num = value.match(/\d+/g);
     r = +num[0] * .75;
@@ -157,6 +169,7 @@ function shadeColor(value) {
 
     return`rgb(${r},${g},${b})`;
 }
+
 
 function makeOpaque(value) {
     let num = +value;
@@ -168,6 +181,7 @@ function makeOpaque(value) {
     return num;
 }
 
+
 function makeTransparent(value) {
     let num = +value;
 
@@ -177,5 +191,6 @@ function makeTransparent(value) {
     
     return num;
 }
+
 
 createGrid();
