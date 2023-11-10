@@ -11,6 +11,8 @@ let sliderLabel = document.querySelector("#sliderLabel");
 let isRgb;
 let isTint;
 let isShade;    
+let isOpaque;
+let isTrans;
 
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
@@ -26,6 +28,7 @@ function createGrid() {
     grid.classList.add("grid");
     grid.style.width = gridWidth + '%';
     grid.style.height = gridWidth + '%';
+    grid.style.opacity = 0.9;
 
     for (let i = 0; i < gridArea; i++){
         container.appendChild(grid.cloneNode(true));
@@ -56,6 +59,10 @@ function colorGrid() {
         this.style.background = tintColor(this.style.background);
     } else if (isShade) {
         this.style.background = shadeColor(this.style.background);
+    } else if (isOpaque){
+        this.style.opacity = makeOpaque(this.style.opacity);
+    } else if (isTrans) {
+        this.style.opacity = makeTransparent(this.style.opacity);
     } else {
         this.style.background = colorValue;
     }
@@ -82,12 +89,21 @@ function changeColor() {
         isShade = false
     }
 
+    if (buttonID === "opacity") {
+        isOpaque = true;
+    } else {
+        isOpaque = false
+    }
+
+    if (buttonID === "trans") {
+        isTrans = true;
+    } else {
+        isTrans = false
+    }
+
     switch (buttonID) {
         case "whiteColor":
             colorValue = "rgb(255, 255, 255)";
-            break;
-        case "opacity":
-            colorValue = "blue";
             break;
         case "erase": 
             colorValue = "transparent";
@@ -124,5 +140,24 @@ function shadeColor(value) {
     return`rgb(${r},${g},${b})`;
 }
 
+function makeOpaque(value) {
+    let num = +value;
+
+    if (num < 1){
+        num += .1
+    }
+
+    return num;
+}
+
+function makeTransparent(value) {
+    let num = +value;
+
+    if (num > 0){
+        num -= .1
+    }
+    
+    return num;
+}
 createGrid();
 //setGridListeners();
