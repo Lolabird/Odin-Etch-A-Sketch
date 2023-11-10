@@ -4,6 +4,8 @@ const container = document.querySelector(".container");
 const conWidth = container.clientWidth;
 const conHeight = container.clientHeight
 const grid = document.createElement("div");
+const gridSlider = document.querySelector("#gridSlider");
+
 
 function createGrid() {
     const gridArea = numGrid ** 2;
@@ -24,13 +26,22 @@ function createGrid() {
         item.addEventListener("mouseover", colorGrid);
     });
 
+    gridSlider.addEventListener("change", getGridDimensions);
+
+}
+
+
+function getGridDimensions() {    
+    numGrid = gridSlider.value;
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }
+    console.log(numGrid);
+    createGrid();
 }
 
 function colorGrid() {
     this.style.background = "blue";
 }
 
-
 createGrid();
-
-
