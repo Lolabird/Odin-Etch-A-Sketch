@@ -26,7 +26,9 @@ function createGrid() {
     for (let i = 0; i < gridArea; i++){
         container.appendChild(grid.cloneNode(true));
     }
+}
 
+function setGridListeners() {
     const gridItems = document.querySelectorAll(".grid");
 
     gridItems.forEach((item) => {
@@ -35,7 +37,6 @@ function createGrid() {
 
     gridSlider.addEventListener("input", getGridDimensions);
 }
-
 
 function getGridDimensions() {    
     numGrid = gridSlider.value;
@@ -87,3 +88,4 @@ function rgbColor() {
 }
 
 createGrid();
+setGridListeners();
