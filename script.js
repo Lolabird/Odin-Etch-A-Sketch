@@ -53,7 +53,9 @@ function colorGrid() {
     if (isRgb) {
         this.style.background = randomizeColor();
     } else if (isTint) {
-
+        this.style.background = tintColor(this.style.background);
+    } else if (isShade) {
+        this.style.background = shadeColor(this.style.background);
     } else {
         this.style.background = colorValue;
     }
@@ -72,6 +74,12 @@ function changeColor() {
         isTint = true;
     } else {
         isTint = false
+    }
+
+    if (buttonID === "shade") {
+        isShade = true;
+    } else {
+        isShade = false
     }
 
     switch (buttonID) {
@@ -102,7 +110,27 @@ function randomizeColor() {
     let b = Math.floor(Math.random() * 255);
 
     return `rgb(${r},${g},${b})`;
+}
 
+function tintColor(value) {
+    let num = value.match(/\d+/g);
+    r = num[0] + num[0] * 1/10;
+    g = num[1] + num[1] * 1/10;
+    b = num[2] + num[2] * 1/10;
+    console.log(r, g, b);
+
+    return`rgb(${r},${g},${b})`;
+}
+
+
+function shadeColor(value) {
+    let num = value.match(/\d+/g);
+    r = num[0] - num[0] * 1/10;
+    g = num[1] - num[1] * 1/10;
+    b = num[2] - num[2] * 1/10;
+    console.log(r, g, b);
+
+    return`rgb(${r},${g},${b})`;
 }
 
 createGrid();
