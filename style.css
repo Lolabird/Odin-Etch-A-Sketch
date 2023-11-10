@@ -9,14 +9,14 @@ body{
     height: 90vh;
 }
 .container{
-    border: 1px solid #eee;
-    height: 600px;
-    width: 600px;
+    border: 1px solid #bbb;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .grid {
-    border: 1px solid #eee;
+    border: 1px solid #bbb;
     box-sizing: border-box;
 }
