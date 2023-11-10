@@ -84,13 +84,7 @@ function changeColor() {
 
     switch (buttonID) {
         case "whiteColor":
-            colorValue = "white";
-            break;
-        case "shade":
-            colorValue = "#333";
-            break;
-        case "tint":
-            colorValue = "#eee";
+            colorValue = "rgb(255, 255, 255)";
             break;
         case "opacity":
             colorValue = "blue";
@@ -99,7 +93,7 @@ function changeColor() {
             colorValue = "transparent";
             break;
         default:
-            colorValue = "black";
+            colorValue = "rgb(0, 0, 0)";
             break;
     }
 }
@@ -114,21 +108,18 @@ function randomizeColor() {
 
 function tintColor(value) {
     let num = value.match(/\d+/g);
-    r = num[0] + num[0] * 1/10;
-    g = num[1] + num[1] * 1/10;
-    b = num[2] + num[2] * 1/10;
-    console.log(r, g, b);
+    r = +num[0] + (0.25 * +num[0]);
+    g = +num[1] + (0.25 * +num[0]);
+    b = +num[2] + (0.25 * +num[0]);
 
     return`rgb(${r},${g},${b})`;
 }
 
-
 function shadeColor(value) {
     let num = value.match(/\d+/g);
-    r = num[0] - num[0] * 1/10;
-    g = num[1] - num[1] * 1/10;
-    b = num[2] - num[2] * 1/10;
-    console.log(r, g, b);
+    r = +num[0] * .75;
+    g = +num[1] * .75;
+    b = +num[2] * .75;
 
     return`rgb(${r},${g},${b})`;
 }
