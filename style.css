@@ -17,6 +17,19 @@ body{
     flex-wrap: wrap;
 }
 
+.user-input {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    align-items: center;
+}
+
 .grid {
     border: 1px solid #bbb;
     box-sizing: border-box;

@@ -1,14 +1,17 @@
-let numGrid = 16; //will use this later to prompt user
-//need to figure out the wrapping issue
+
 const container = document.querySelector(".container");
 const conWidth = container.clientWidth;
 const grid = document.createElement("div");
 const gridSlider = document.querySelector("#gridSlider");
+let numGrid = gridSlider.value;
+let sliderLabel = document.querySelector("#sliderLabel");
 
 
 function createGrid() {
     const gridArea = numGrid ** 2;
     const gridWidth = 100 / numGrid;
+
+    sliderLabel.textContent = numGrid
 
     grid.classList.add("grid");
     grid.style.width = gridWidth + '%';
@@ -24,7 +27,7 @@ function createGrid() {
         item.addEventListener("mouseover", colorGrid);
     });
 
-    gridSlider.addEventListener("change", getGridDimensions);
+    gridSlider.addEventListener("input", getGridDimensions);
 }
 
 
@@ -33,7 +36,6 @@ function getGridDimensions() {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
-    console.log(numGrid);
     createGrid();
 }
 
