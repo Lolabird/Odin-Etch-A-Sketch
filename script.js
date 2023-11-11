@@ -10,6 +10,7 @@ let colorValue;
 let numGrid; //= gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
 
+
 //the next few variables are set to be used to test if 
 //a given button has been clicked
 let isRgb;
@@ -39,11 +40,11 @@ function pickBackground() {
 
 
 function createGrid() {
-    numGrid = gridSlider.value
+    numGrid = gridSlider.value;
     const gridArea = numGrid ** 2;
     const gridWidth = 100 / numGrid;
 
-    sliderLabel.textContent = numGrid
+    sliderLabel.textContent = numGrid;
 
     grid.classList.add("grid");
     grid.style.width = gridWidth + '%';
@@ -65,11 +66,12 @@ function createGrid() {
 
 
 function getGridDimensions() {   
-    gridSlider.defaultValue = 16;
     container.style.backgroundColor = "#ffffff";
     backColorPicker.value = "#ffffff";
     colorPicker.value = "#000000";
     colorValue = "black";
+    gridSlider.defaultValue = 16;
+    numGrid = gridSlider.defaultValue;
     
     while (container.firstChild) {
         container.removeChild(container.lastChild);
