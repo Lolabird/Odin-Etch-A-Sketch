@@ -25,7 +25,7 @@ let isWhite;
 let isErase;
 
 
-getGridDimensions();
+resetGrid();
 
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
@@ -43,19 +43,21 @@ function pickBackground() {
 
 function resetGrid() {
     gridSlider.value = gridSlider.defaultValue;
-    getGridDimensions();
-}
-
-function getGridDimensions() {   
     container.style.backgroundColor = "#ffffff";
     backColorPicker.value = "#ffffff";
     colorPicker.value = "#000000";
     colorValue = "black";
+
+    getGridDimensions();
+}
+
+function getGridDimensions() {   
     numGrid = gridSlider.value;
     
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
+    
     createGrid();
 }
 
