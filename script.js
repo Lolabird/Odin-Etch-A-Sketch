@@ -41,6 +41,7 @@ function pickBackground() {
     container.style.backgroundColor = backColorPicker.value;
 }
 
+
 function resetGrid() {
     gridSlider.value = gridSlider.defaultValue;
     container.style.backgroundColor = "#ffffff";
@@ -50,6 +51,7 @@ function resetGrid() {
 
     getGridDimensions();
 }
+
 
 function getGridDimensions() {   
     numGrid = gridSlider.value;
