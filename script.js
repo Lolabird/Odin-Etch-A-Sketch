@@ -6,8 +6,8 @@ const buttons = document.querySelectorAll(".pen");
 const colorPicker = document.querySelector("#custom-color");
 const reset = document.querySelector("#reset");
 const backColorPicker = document.querySelector("#back-col-picker")
-let colorValue = "black";
-let numGrid = gridSlider.value;
+let colorValue;
+let numGrid; //= gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
 
 //the next few variables are set to be used to test if 
@@ -22,7 +22,7 @@ let isWhite;
 let isErase;
 
 
-createGrid();
+getGridDimensions();
 
 buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
@@ -39,6 +39,7 @@ function pickBackground() {
 
 
 function createGrid() {
+    numGrid = gridSlider.value
     const gridArea = numGrid ** 2;
     const gridWidth = 100 / numGrid;
 
@@ -64,12 +65,12 @@ function createGrid() {
 
 
 function getGridDimensions() {   
-    //gridSlider.value = 16;
+    gridSlider.defaultValue = 16;
     container.style.backgroundColor = "#ffffff";
     backColorPicker.value = "#ffffff";
     colorPicker.value = "#000000";
+    colorValue = "black";
     
-    numGrid = gridSlider.value;
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
