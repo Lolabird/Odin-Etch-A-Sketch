@@ -32,6 +32,7 @@ buttons.forEach((button) => {
 });
 
 colorPicker.addEventListener("input", changeColor);
+colorPicker.addEventListener("change", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
 reset.addEventListener("click", resetGrid);
 gridSlider.addEventListener("input", getGridDimensions);
