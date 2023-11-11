@@ -5,11 +5,18 @@ body{
 }
 .area{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 90vh;
 }
+
+.pen-input, .grid-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+}
+
 .container{
     border: 1px solid #bbb;
     height: 500px;
@@ -19,17 +26,33 @@ body{
     background: white;
 }
 
-.user-input {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-
 .slider {
     display: flex;
     flex-direction: column;
     margin: 0 10px;
     align-items: center;
+}
+
+.range-knob {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #111;
+    cursor: pointer;
+    background: #bbb;
+    box-shadow: 1px 2px 10px 1px #555;
+}
+
+.range-knotch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #111;
+    position: relative;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .grid {

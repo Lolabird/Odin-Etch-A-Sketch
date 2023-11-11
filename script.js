@@ -36,7 +36,7 @@ colorPicker.addEventListener("change", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
 reset.addEventListener("click", resetGrid);
 gridSlider.addEventListener("input", getGridDimensions);
-
+gridSlider.addEventListener("change", getGridDimensions);
 
 
 function resetGrid() {
@@ -69,7 +69,6 @@ function createGrid() {
     sliderLabel.textContent = numGrid;
 
     grid.classList.add("grid", "grid-on");
-    //grid.classList.add("grid-on");
     grid.style.width = gridWidth + '%';
     grid.style.height = gridWidth + '%';
     grid.style.opacity = 0.9;

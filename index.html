@@ -11,37 +11,48 @@
 
 
     <div class="area">
-        <div class="user-input">
-            <button class="pen" id="rgbColor">RGB</button>
-            <button class="pen" id="blackColor">Black</button>
-            <button class="pen" id="whiteColor">White</button>
-            <button class="pen" id="shade">Shade</button>
-            <button class="pen" id="tint">Tint</button>
-            <button class="pen" id="opacity">Opacity</button>
-            <button class="pen" id="trans">Transparent</button>
-            <button class="pen" id="erase">Erase</button>
-            <button id="gridToggle">Grid</button>
-            <button id="reset">Reset</button>
+        <div class="pen-input">
+            <div class="pen-color">
+                <button class="pen" id="blackColor">Black</button>
+                <button class="pen" id="whiteColor">White</button>
+                <button class="pen" id="rgbColor">RGB</button>
 
-            <div id = "col-picker">
-                <label for="custom-color">Pick a color:</label>
-                <input type="color" id="custom-color" value="#ff0000">
+                <div class="col-picker">
+                    <label for="custom-color">Pen color:</label>
+                    <input type="color" id="custom-color" value="#ff0000">
+                </div>
+
+                <button class="pen" id="erase">Erase</button>
             </div>
 
-            <div id = "background-col-picker">
-                <label for="back-col-picker">Pick a color:</label>
-                <input type="color" id="back-col-picker" value="#ff0000">
-            </div>
-
-
-            <div class="slider">
-                <label for="gridSlider">Grid Size: <span id="sliderLabel"></span></label>
-                <input name="gridSlider" id="gridSlider" type="range" min="1" max="100" value="16">
+            <div class="pen-tools">
+                <button class="pen" id="shade">Shade</button>
+                <button class="pen" id="tint">Tint</button>
+                <button class="pen" id="opacity">Opacity</button>
+                <button class="pen" id="trans">Transparent</button>
             </div>
         </div>
         
-        <div class="container">
+        <div class="container"></div>
 
+        <div class="grid-input">
+            <div class="grid-tools">
+                <div class="slider">
+                    <label for="gridSlider">Grid Size: <span id="sliderLabel"></span></label>
+                    <input name="gridSlider" id="gridSlider" type="range" min="1" max="100" value="16">
+                    <div class="range-knob" id="knob">
+                        <div class="range-knotch" id="knotch"></div>
+                    </div>
+                </div>
+
+                <div class="background-col-picker">
+                    <label for="back-col-picker">Canvas color:</label>
+                    <input type="color" id="back-col-picker" value="#ff0000">
+                </div>
+
+                <button id="gridToggle">Grid</button>
+                <button id="reset">Reset</button>
+            </div>
         </div>
     </div>
     
