@@ -14,7 +14,35 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 20px;
+}
+
+.pen-color, .pen-tools, .grid-tools, 
+.col-picker, .background-col-picker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.col-picker, .background-col-picker {
+    margin: 5px;
+    width: 100px;
+}
+
+.color-label {
+    padding-bottom: 5px;
+}
+
+.color-input {
+    width: 100%
+}
+
+button {
+    display: block;
+    width: 100px;
+    margin: 5px;
+
 }
 
 .container{
