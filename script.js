@@ -7,7 +7,7 @@ const colorPicker = document.querySelector("#custom-color");
 const reset = document.querySelector("#reset");
 const backColorPicker = document.querySelector("#back-col-picker")
 let colorValue;
-let numGrid; //= gridSlider.value;
+let numGrid;
 let sliderLabel = document.querySelector("#sliderLabel");
 gridSlider.defaultValue = 16;
 
@@ -37,10 +37,6 @@ backColorPicker.addEventListener("input", pickBackground);
 reset.addEventListener("click", resetGrid);
 gridSlider.addEventListener("input", getGridDimensions);
 
-
-function pickBackground() {
-    container.style.backgroundColor = backColorPicker.value;
-}
 
 
 function resetGrid() {
@@ -72,7 +68,8 @@ function createGrid() {
 
     sliderLabel.textContent = numGrid;
 
-    grid.classList.add("grid");
+    grid.classList.add("grid", "grid-on");
+    //grid.classList.add("grid-on");
     grid.style.width = gridWidth + '%';
     grid.style.height = gridWidth + '%';
     grid.style.opacity = 0.9;
@@ -82,10 +79,33 @@ function createGrid() {
     }
 
     const gridItems = document.querySelectorAll(".grid");
+    const gridToggle = document.querySelector("#gridToggle");
 
     gridItems.forEach((item) => {
         item.addEventListener("mouseover", colorGrid);
     });
+
+    gridToggle.addEventListener("click", () => {
+        gridItems.forEach((item) => {
+            toggleGridView(item);
+        });
+    }); 
+}
+
+
+function toggleGridView(gridItem) {
+    if (gridItem.classList.contains("grid-on")){
+        gridItem.classList.remove("grid-on");
+        gridItem.classList.add("grid-off");
+    } else {
+        gridItem.classList.remove("grid-off");
+        gridItem.classList.add("grid-on");
+    }
+}
+
+
+function pickBackground() {
+    container.style.backgroundColor = backColorPicker.value;
 }
 
 
