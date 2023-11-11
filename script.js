@@ -9,6 +9,8 @@ const backColorPicker = document.querySelector("#back-col-picker")
 let colorValue;
 let numGrid; //= gridSlider.value;
 let sliderLabel = document.querySelector("#sliderLabel");
+gridSlider.defaultValue = 16;
+
 
 
 //the next few variables are set to be used to test if 
@@ -31,11 +33,30 @@ buttons.forEach((button) => {
 
 colorPicker.addEventListener("input", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
-reset.addEventListener("click", getGridDimensions);
+reset.addEventListener("click", resetGrid);
+gridSlider.addEventListener("input", getGridDimensions);
 
 
 function pickBackground() {
     container.style.backgroundColor = backColorPicker.value;
+}
+
+function resetGrid() {
+    gridSlider.value = gridSlider.defaultValue;
+    getGridDimensions();
+}
+
+function getGridDimensions() {   
+    container.style.backgroundColor = "#ffffff";
+    backColorPicker.value = "#ffffff";
+    colorPicker.value = "#000000";
+    colorValue = "black";
+    numGrid = gridSlider.value;
+    
+    while (container.firstChild) {
+        container.removeChild(container.lastChild);
+    }
+    createGrid();
 }
 
 
@@ -60,23 +81,6 @@ function createGrid() {
     gridItems.forEach((item) => {
         item.addEventListener("mouseover", colorGrid);
     });
-
-    gridSlider.addEventListener("input", getGridDimensions);
-}
-
-
-function getGridDimensions() {   
-    container.style.backgroundColor = "#ffffff";
-    backColorPicker.value = "#ffffff";
-    colorPicker.value = "#000000";
-    colorValue = "black";
-    gridSlider.defaultValue = 16;
-    numGrid = gridSlider.defaultValue;
-    
-    while (container.firstChild) {
-        container.removeChild(container.lastChild);
-    }
-    createGrid();
 }
 
 
