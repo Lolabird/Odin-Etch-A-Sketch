@@ -28,17 +28,8 @@ buttons.forEach((button) => {
     button.addEventListener ("click", changeColor);
 });
 
-colorPicker.addEventListener("change", colorGrid);
-colorPicker.addEventListener("input", colorGrid);
-colorPicker.addEventListener("click", colorGrid);
-colorPicker.addEventListener("change", changeColor);
 colorPicker.addEventListener("input", changeColor);
-colorPicker.addEventListener("click", changeColor);
-
-backColorPicker.addEventListener("change", pickBackground);
 backColorPicker.addEventListener("input", pickBackground);
-//backColorPicker.addEventListener("click", pickBackground);
-
 reset.addEventListener("click", getGridDimensions);
 
 
