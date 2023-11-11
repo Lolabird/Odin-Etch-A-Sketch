@@ -4,14 +4,13 @@ const grid = document.createElement("div");
 const gridSlider = document.querySelector("#gridSlider");
 gridSlider.defaultValue = 16;
 const sliderLabel = document.querySelector("#sliderLabel");
+const rangeKnob = document.querySelector("#range-knob");
 let numGrid;
 const buttons = document.querySelectorAll(".pen");
 const colorPicker = document.querySelector("#custom-color");
 let colorValue;
 const backColorPicker = document.querySelector("#back-col-picker");
 const reset = document.querySelector("#reset");
-const rangeKnob = document.querySelector("#range-knob");
-let isDragging;
 
 
 //the next few variables are set to be used to test if 
@@ -39,19 +38,12 @@ reset.addEventListener("click", resetGrid);
 gridSlider.addEventListener("input", getGridDimensions);
 gridSlider.addEventListener("change", getGridDimensions);
 rangeKnob.addEventListener("mousedown", (e) => {
-    isDragging = true;
-
-    if (isDragging) {
-        document.addEventListener("mousemove", rotateKnob);
-    }
-
+    document.addEventListener("mousemove", rotateKnob);
     document.addEventListener("mouseup", () => {
-        isDragging = false;
         document.removeEventListener("mousemove", rotateKnob);
     });
-
-    console.log(isDragging);
 });
+
 
 function resetGrid() {
     gridSlider.value = gridSlider.defaultValue;
