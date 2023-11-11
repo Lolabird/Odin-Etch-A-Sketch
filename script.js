@@ -2,15 +2,16 @@ const container = document.querySelector(".container");
 const conWidth = container.clientWidth;
 const grid = document.createElement("div");
 const gridSlider = document.querySelector("#gridSlider");
+gridSlider.defaultValue = 16;
+const sliderLabel = document.querySelector("#sliderLabel");
+let numGrid;
 const buttons = document.querySelectorAll(".pen");
 const colorPicker = document.querySelector("#custom-color");
-const reset = document.querySelector("#reset");
-const backColorPicker = document.querySelector("#back-col-picker")
 let colorValue;
-let numGrid;
-let sliderLabel = document.querySelector("#sliderLabel");
-gridSlider.defaultValue = 16;
-
+const backColorPicker = document.querySelector("#back-col-picker");
+const reset = document.querySelector("#reset");
+const rangeKnob = document.querySelector("#range-knob");
+let isDragging;
 
 
 //the next few variables are set to be used to test if 
@@ -37,7 +38,20 @@ backColorPicker.addEventListener("input", pickBackground);
 reset.addEventListener("click", resetGrid);
 gridSlider.addEventListener("input", getGridDimensions);
 gridSlider.addEventListener("change", getGridDimensions);
+rangeKnob.addEventListener("mousedown", (e) => {
+    isDragging = true;
 
+    if (isDragging) {
+        document.addEventListener("mousemove", rotateKnob);
+    }
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        document.removeEventListener("mousemove", rotateKnob);
+    });
+
+    console.log(isDragging);
+});
 
 function resetGrid() {
     gridSlider.value = gridSlider.defaultValue;
@@ -89,6 +103,18 @@ function createGrid() {
             toggleGridView(item);
         });
     }); 
+}
+
+
+function rotateKnob(e) {
+    const knobBounds = rangeKnob.getBoundingClientRect();
+    const knobCenter = {
+        x: knobBounds.left + knobBounds.width/2,
+        y: knobBounds.top + knobBounds.height/2
+    }; 
+    let angle = Math.atan2(e.pageX - knobCenter.x, - (e.pageY - knobCenter.y) )*(180 / Math.PI);	    
+
+    rangeKnob.style.transform = `rotate(${angle}deg)`;  
 }
 
 

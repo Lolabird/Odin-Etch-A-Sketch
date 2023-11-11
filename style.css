@@ -61,9 +61,9 @@ button {
     align-items: center;
 }
 
-.range-knob {
-    width: 50px;
-    height: 50px;
+.knob {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 1px solid #111;
     cursor: pointer;
@@ -71,7 +71,7 @@ button {
     box-shadow: 1px 2px 10px 1px #555;
 }
 
-.range-knotch {
+.knotch {
     width: 10px;
     height: 10px;
     border-radius: 50%;
