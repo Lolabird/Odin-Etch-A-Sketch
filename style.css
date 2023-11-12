@@ -29,14 +29,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     flex: 1;
 }
 
+h3 {
+    
+}
+
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     background-color: #111;
     opacity: .8;
@@ -67,7 +67,7 @@ button, .container, .color-input {
     padding: 0 10px;
 }
 
-.color-label {
+.tool-sub-labels {
     padding-bottom: 5px;
     font-size: 18px;
 }
@@ -75,7 +75,6 @@ button, .container, .color-input {
 .color-input {
     width: 120%;
     height: 25px;
-
 }
 
 button {
@@ -163,7 +162,21 @@ button {
     box-shadow: 1px 1px 1px #555;
 }
 
+.knobless-grid-tools {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+    
     .pen-color, .pen-tools, .grid-tools {
       flex-direction: row; /* Switch to a row layout when wrapping occurs */
       align-items: flex-end;
@@ -171,15 +184,9 @@ button {
       flex-wrap: wrap;
     }
 
-    .knob {
-        width: 50px;
-        height: 50px;
-    }
-
-    .knob-shadow {
-        width: 50px;
-        height: 50px;
-        top: 8%;
-        left: 1%;
+    .tool-sub-labels {
+        display: flex;
+        flex-direction: column;
     }
   }
+
