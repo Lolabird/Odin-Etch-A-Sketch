@@ -35,6 +35,7 @@ colorPicker.addEventListener("input", changeColor);
 colorPicker.addEventListener("change", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
 reset.addEventListener("click", resetGrid);
+
 gridSlider.addEventListener("input", getGridDimensions);
 gridSlider.addEventListener("change", getGridDimensions);
 rangeKnob.addEventListener("mousedown", (e) => {
@@ -60,15 +61,16 @@ function resetGrid() {
 function rotateKnob(e) {
     const knobBounds = rangeKnob.getBoundingClientRect();
     const knobCenter = {
-        x: knobBounds.left + knobBounds.width/2,
-        y: knobBounds.top + knobBounds.height/2
-    }; 
-    let angle = Math.atan2(e.pageX - knobCenter.x, - (e.pageY - knobCenter.y) )*(180 / Math.PI);	    
+        x: knobBounds.left + knobBounds.width / 2,
+        y: knobBounds.top + knobBounds.height / 2
+    };
+    let angle = Math.atan2(e.clientX - knobCenter.x, -(e.clientY - knobCenter.y)) * (180 / Math.PI);
 
     rangeKnob.style.transform = `rotate(${angle}deg)`;
-
+    
     updateGridSlider(angle);
 }
+
 
 function updateGridSlider(angle) {
     const maxRotation = 360;
