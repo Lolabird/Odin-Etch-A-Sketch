@@ -51,6 +51,7 @@ function resetGrid() {
     backColorPicker.value = "#ffffff";
     colorPicker.value = "#000000";
     colorValue = "black";
+    rangeKnob.style.transform = "rotate(0deg)";
 
     getGridDimensions();
 }
@@ -63,23 +64,28 @@ function rotateKnob(e) {
         y: knobBounds.top + knobBounds.height/2
     }; 
     let angle = Math.atan2(e.pageX - knobCenter.x, - (e.pageY - knobCenter.y) )*(180 / Math.PI);	    
-    const degrees = angle * (180 / Math.PI);
-    const sliderValue = Math.round((degrees / 360) * (rangeKnob.max - rangeKnob.min) + parseFloat(rangeKnob.min));
 
     rangeKnob.style.transform = `rotate(${angle}deg)`;
-    rangeKnob.value = sliderValue;  
+
+    updateGridSlider(angle);
+}
+
+function updateGridSlider(angle) {
+    const maxRotation = 360;
+    const minSliderVal = gridSlider.min;
+    const maxSliderVal = gridSlider.max;
+
+    const sliderVal = (angle + maxRotation) % maxRotation;
+    const normalizedValue = (sliderVal / maxRotation) * (maxSliderVal - minSliderVal) + minSliderVal;
+
+    gridSlider.value = normalizedValue;
+    getGridDimensions(normalizedValue);
 }
 
 
-function getGridDimensions() {   
-    const min = gridSlider.min;
-    const max = gridSlider.max;
-    const value = gridSlider.value;
-    const percentage = ((value - min) / (max - min)) * 100;
-
-    rangeKnob.style.transform = `rotate(${percentage}deg)`;
-
-    numGrid = gridSlider.value;
+function getGridDimensions(val) {   
+    //numGrid = gridSlider.value;
+    numGrid = val;
     
     while (container.firstChild) {
         container.removeChild(container.lastChild);
