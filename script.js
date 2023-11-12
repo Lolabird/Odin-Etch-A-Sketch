@@ -230,7 +230,12 @@ function randomizeColor() {
 
 
 function tintColor(value) {
+    if (!value) {
+        value = container.style.backgroundColor
+    }
+
     let num = value.match(/\d+/g);
+
     r = +num[0] + (0.25 * (255 - +num[0]));
     g = +num[1] + (0.25 * (255 - +num[1]));
     b = +num[2] + (0.25 * (255 - +num[2]));
@@ -240,6 +245,10 @@ function tintColor(value) {
 
 
 function shadeColor(value) {
+    if (!value) {
+        value = container.style.backgroundColor
+    }
+    
     let num = value.match(/\d+/g);
     r = +num[0] * .75;
     g = +num[1] * .75;
