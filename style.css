@@ -8,13 +8,12 @@ body{
     justify-content: center;
     align-items: center;
     height: 90vh;
+    flex-wrap: wrap;
 }
 
 .pen-input, .grid-input {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 20px;
 }
 
@@ -24,6 +23,14 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
+@media screen and (max-width: 900px) {
+    .pen-color, .pen-tools, .grid-tools {
+      flex-direction: row; /* Switch to a row layout when wrapping occurs */
+      align-items: flex-end;
+      justify-content: center;
+    }
+  }
 
 .col-picker, .background-col-picker {
     margin: 5px;

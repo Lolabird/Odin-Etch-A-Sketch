@@ -12,30 +12,32 @@
 
     <div class="area">
         <div class="pen-input">
+            <h3 class="tool-labels">Pen Colors</h3>
             <div class="pen-color">
                 <button class="pen" id="blackColor">Black</button>
                 <button class="pen" id="whiteColor">White</button>
                 <button class="pen" id="rgbColor">RGB</button>
 
                 <div class="col-picker">
-                    <label class="color-label" for="custom-color">Pen color:</label>
+                    <label class="color-label" for="custom-color">Custom</label>
                     <input class="color-input" type="color" id="custom-color" value="#ff0000">
                 </div>
-
-                <button class="pen" id="erase">Erase</button>
             </div>
-
+            
+            <h3 class="tool-labels">Pen Tools</h3>
             <div class="pen-tools">
-                <button class="pen" id="shade">Shade</button>
-                <button class="pen" id="tint">Tint</button>
-                <button class="pen" id="opacity">Opacity</button>
-                <button class="pen" id="trans">Transparent</button>
+                <button class="pen" id="tint">Lighten</button>
+                <button class="pen" id="shade">Darken</button>
+                <button class="pen" id="trans">Fade</button>
+                <button class="pen" id="opacity">Opacify</button>
+                <button class="pen" id="erase">Erase</button>
             </div>
         </div>
         
         <div class="container"></div>
 
         <div class="grid-input">
+            <h3 class="tool-labels">Grid Tools</h3>
             <div class="grid-tools">
                 <div class="slider">
                     <label for="gridSlider">Grid Size: <span id="sliderLabel"></span></label>
