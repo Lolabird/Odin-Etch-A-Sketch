@@ -47,7 +47,7 @@ rangeKnob.addEventListener("mousedown", (e) => {
 
 function resetGrid() {
     gridSlider.value = gridSlider.defaultValue;
-    container.style.backgroundColor = "#ffffff";
+    container.style.backgroundColor = "rgb(180, 254, 235)";
     backColorPicker.value = "#ffffff";
     colorPicker.value = "#000000";
     colorValue = "black";
