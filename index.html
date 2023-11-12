@@ -12,14 +12,14 @@
 
     <main>
         <div class="pen-input">
-            <h3 class="tool-labels">Pen Colors</h3>
+            <h3 class="tool-labels" id="h3-pen-color">Pen Colors</h3>
             <div class="pen-color">
                 <button class="pen" id="blackColor">Black</button>
                 <button class="pen" id="whiteColor">White</button>
                 <button class="pen" id="rgbColor">RGB</button>
 
                 <div class="col-picker">
-                    <label class="color-label" for="custom-color">Custom</label>
+                    <label class="sub-labels" for="custom-color">Custom</label>
                     <input class="color-input" type="color" id="custom-color" value="#ff0000">
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <h3 class="tool-labels">Grid Tools</h3>
             <div class="grid-tools">
                 <div class="slider">
-                    <label class="tool-sub-labels" for="gridSlider">Grid Size: <span id="sliderLabel"></span></label>
+                    <label class="sub-labels" for="gridSlider">Grid Size: <span id="sliderLabel"></span></label>
                     <input name="gridSlider" id="gridSlider" type="range" min="1" max="100" value="16">
                     <div class="knob-container">
                         <div class="knob" id="range-knob">
@@ -52,7 +52,7 @@
 
                 <div class="knobless-grid-tools">
                     <div class="background-col-picker">
-                        <label class="tool-sub-labels" for="back-col-picker">Canvas color:</label>
+                        <label class="sub-labels" for="back-col-picker">Canvas color:</label>
                         <input class="color-input" type="color" id="back-col-picker" value="#ff0000">
                     </div>
                     <div class="grid-buttons">
