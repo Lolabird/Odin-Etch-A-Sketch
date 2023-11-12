@@ -106,6 +106,7 @@ button {
 .container{
     border: 1px solid #bbb;
     height: 500px;
+    width: 100%;
     max-width: 500px;
     display: flex;
     flex-wrap: wrap;
