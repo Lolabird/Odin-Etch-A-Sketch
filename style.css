@@ -45,7 +45,6 @@ footer {
 .pen-input, .grid-input {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin: 20px;
 }
 
@@ -68,7 +67,6 @@ footer {
 .col-picker, .background-col-picker {
     margin: 5px;
     width: 100px;
-    padding: 0 10px;
 }
 
 .color-label {
@@ -77,7 +75,7 @@ footer {
 }
 
 .color-input {
-    width: 120%;
+    width: 120%
 }
 
 button {
@@ -89,8 +87,8 @@ button {
 
 .container{
     border: 1px solid #bbb;
-    max-width: 500px;
-    aspect-ratio: 1/1;
+    height: 500px;
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
     background: rgb(180, 254, 235);
