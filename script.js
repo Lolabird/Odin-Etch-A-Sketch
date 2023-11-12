@@ -49,7 +49,7 @@ rangeKnob.addEventListener("mousedown", (e) => {
 function resetGrid() {
     gridSlider.value = gridSlider.defaultValue;
     container.style.backgroundColor = "rgb(180, 254, 235)";
-    backColorPicker.value = "#ffffff";
+    backColorPicker.value = "#b4feeb";
     colorPicker.value = "#000000";
     colorValue = "black";
     rangeKnob.style.transform = `rotate(${gridSlider.value}deg)`;
@@ -67,7 +67,7 @@ function rotateKnob(e) {
     let angle = Math.atan2(e.clientX - knobCenter.x, -(e.clientY - knobCenter.y)) * (180 / Math.PI);
 
     rangeKnob.style.transform = `rotate(${angle}deg)`;
-    
+
     updateGridSlider(angle);
 }
 
