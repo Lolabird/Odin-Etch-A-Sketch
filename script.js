@@ -146,7 +146,7 @@ function createGrid() {
     gridItems.forEach((item) => {
         item.addEventListener("pointerover", colorGrid);
     });
-    document.addEventListener("touchmove", function(e) {
+    container.addEventListener("touchmove", function(e) {
         e.preventDefault();
 
         gridItems.forEach((item) => {
