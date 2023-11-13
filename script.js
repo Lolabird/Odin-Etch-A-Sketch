@@ -65,7 +65,8 @@ function resetGrid() {
     colorValue = "black";
     rangeKnob.style.transform = `rotate(${gridSlider.value}deg)`;
     transSlider.value = 1;
-    //transSlider.style.backgroundColor = "rgb(180, 254, 235)";
+    transSlider.style.backgroundColor = "rgb(180, 254, 235)";
+    rangeSlider.style.setProperty('--canvas-color', "rgb(180, 254, 235)");
     transLabel.textContent = transSlider.value
 
     getGridDimensions();
@@ -169,10 +170,12 @@ function pickBackground() {
         b = num2[2];
         a = num[3]+ "."+ num[4];
         container.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
-        //transSlider.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+        transSlider.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+        rangeSlider.style.setProperty('--canvas-color', `rgba(${r},${g},${b},${a})`);
     } else {
         container.style.backgroundColor = backColorPicker.value;
-        //transSlider.style.backgroundColor = backColorPicker.value;
+        transSlider.style.backgroundColor = backColorPicker.value;
+        rangeSlider.style.setProperty('--canvas-color', backColorPicker.value);
     }
 }
 
@@ -206,7 +209,8 @@ function adjustTransparency() {
 
     transLabel.textContent = a;
     container.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
-    //transSlider.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+    transSlider.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+    rangeSlider.style.setProperty('--canvas-color', `rgba(${r},${g},${b},${a})`);
 }
 
 function colorGrid() {

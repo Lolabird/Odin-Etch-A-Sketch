@@ -1,6 +1,7 @@
 html {
     height: 100%;
     --range-value: 100%;
+    --canvas-color: rgb(180, 254, 235);
 }
 
 body{
@@ -159,7 +160,7 @@ input[type="range"]::-moz-range-thumb:active{
     background-color: #68ffd8;
 }
 input[type="range"]::-moz-range-track {
-    background: linear-gradient(to right, #FF0000 0%, #FF0000 var(--range-value), #00FF00 var(--range-value), #00FF00 100%);
+    background: linear-gradient(to right, var(--canvas-color) 0%, var(--canvas-color) var(--range-value), #bbb var(--range-value), #bbb 100%);
 }
 
 
@@ -178,7 +179,7 @@ input[type="range"]::-webkit-slider-thumb:active {
     background-color: #68ffd8;
 }
 input[type="range"]::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, #FF0000 0%, #FF0000 var(--range-value), #00FF00 var(--range-value), #00FF00 100%);
+    background: linear-gradient(to right, var(--canvas-color) 0%, var(--canvas-color) var(--range-value), #bbb var(--range-value), #bbb 100%);;
 }
 
 #gridSlider {
