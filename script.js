@@ -14,6 +14,12 @@ const transLabel = document.querySelector("#trans-label");
 const transSlider = document.querySelector("#canvas-trans");
 const reset = document.querySelector("#reset");
 
+const rangeSlider = document.querySelector('input[type="range"]');
+rangeSlider.addEventListener('input', function() {
+    const percentage = ((rangeSlider.value - rangeSlider.min) / (rangeSlider.max - rangeSlider.min)) * 100;
+    rangeSlider.style.setProperty('--range-value', `${percentage}%`);
+});
+
 
 //the next few variables are set to be used to test if
 //a given button has been clicked
@@ -36,7 +42,9 @@ buttons.forEach((button) => {
 colorPicker.addEventListener("input", changeColor);
 colorPicker.addEventListener("change", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
+
 transSlider.addEventListener("input", adjustTransparency);
+
 
 gridSlider.addEventListener("input", getGridDimensions);
 rangeKnob.addEventListener("mousedown", (e) => {
