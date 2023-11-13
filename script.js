@@ -12,13 +12,8 @@ let colorValue;
 const backColorPicker = document.querySelector("#back-col-picker");
 const transLabel = document.querySelector("#trans-label");
 const transSlider = document.querySelector("#canvas-trans");
-const reset = document.querySelector("#reset");
-
 const rangeSlider = document.querySelector('input[type="range"]');
-rangeSlider.addEventListener('input', function() {
-    const percentage = ((rangeSlider.value - rangeSlider.min) / (rangeSlider.max - rangeSlider.min)) * 100;
-    rangeSlider.style.setProperty('--range-value', `${percentage}%`);
-});
+const reset = document.querySelector("#reset");
 
 
 //the next few variables are set to be used to test if
@@ -44,7 +39,7 @@ colorPicker.addEventListener("change", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
 
 transSlider.addEventListener("input", adjustTransparency);
-
+rangeSlider.addEventListener('input', changeSliderColor);
 
 gridSlider.addEventListener("input", getGridDimensions);
 rangeKnob.addEventListener("mousedown", (e) => {
@@ -150,6 +145,12 @@ function toggleGridView(gridItem) {
         gridItem.classList.remove("grid-off");
         gridItem.classList.add("grid-on");
     }
+}
+
+
+function changeSliderColor() {
+    const percentage = ((rangeSlider.value - rangeSlider.min) / (rangeSlider.max - rangeSlider.min)) * 100;
+    rangeSlider.style.setProperty('--range-value', `${percentage}%`);
 }
 
 
