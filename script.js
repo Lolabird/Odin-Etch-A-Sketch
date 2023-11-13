@@ -240,6 +240,9 @@ function colorGrid() {
 function changeColor() {
     const buttonID = this.id;
 
+    buttons.forEach(btn => btn.classList.remove("is-active"));
+    this.classList.add("is-active");
+
     if (buttonID === "rgbColor") {
         isRgb = true;
     } else {

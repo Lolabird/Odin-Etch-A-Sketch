@@ -57,7 +57,8 @@ button, .container, .color-input, .knob {
     border: none;
     color: #000;
 }
-button:hover, .container:hover, .color-input:hover {
+button:hover, .container:hover, .color-input:hover, 
+.knob:hover, .knob:active, .is-active {
     background-color: #68ffd8;
 }
 
@@ -144,6 +145,12 @@ button {
     border-radius: 6px;
     margin-bottom: 20px;
 }
+.range-slider:hover {
+    box-shadow: 1px 2px 10px 1px #68ffd8;
+}
+.range-slider:active {
+    box-shadow: 1px 2px 10px 1px #68ffd8;
+}
 
 input[type="range"]::-moz-range-thumb {
     appearance: none;
@@ -216,6 +223,12 @@ input[type="range"]::-webkit-slider-runnable-track {
     z-index: 1;
     transform-style: preserve-3d;
     will-change: transform;
+}
+.knob:hover {
+    box-shadow: 1px 2px 10px 1px #68ffd8;
+}
+.knob:active {
+    box-shadow: 1px 2px 10px 1px #68ffd8;
 }
 
 .knotch {
