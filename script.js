@@ -10,10 +10,12 @@ const buttons = document.querySelectorAll(".pen");
 const colorPicker = document.querySelector("#custom-color");
 let colorValue;
 const backColorPicker = document.querySelector("#back-col-picker");
+const transLabel = document.querySelector("#trans-label");
+const transSlider = document.querySelector("#canvas-trans");
 const reset = document.querySelector("#reset");
 
 
-//the next few variables are set to be used to test if 
+//the next few variables are set to be used to test if
 //a given button has been clicked
 let isRgb;
 let isTint;
@@ -34,16 +36,17 @@ buttons.forEach((button) => {
 colorPicker.addEventListener("input", changeColor);
 colorPicker.addEventListener("change", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
-reset.addEventListener("click", resetGrid);
+transSlider.addEventListener("input", adjustTransparency);
 
 gridSlider.addEventListener("input", getGridDimensions);
-gridSlider.addEventListener("change", getGridDimensions);
 rangeKnob.addEventListener("mousedown", (e) => {
     document.addEventListener("mousemove", rotateKnob);
     document.addEventListener("mouseup", () => {
         document.removeEventListener("mousemove", rotateKnob);
     });
 });
+
+reset.addEventListener("click", resetGrid);
 
 
 function resetGrid() {
@@ -86,7 +89,6 @@ function updateGridSlider(angle) {
 
 
 function getGridDimensions(val) {   
-    //numGrid = gridSlider.value;
     numGrid = val;
     
     while (container.firstChild) {
@@ -143,6 +145,23 @@ function pickBackground() {
     container.style.backgroundColor = backColorPicker.value;
 }
 
+
+function adjustTransparency() {
+    const currentColor = container.style.backgroundColor;
+    let num = currentColor.match(/\d+/g);
+    let r;
+    let g;
+    let b;
+    let a;
+
+    r = +num[0];
+    g = +num[1];
+    b = +num[2];
+    a = transSlider.value;
+
+
+    container.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+}
 
 function colorGrid() {
     if (isRgb) {
@@ -236,9 +255,9 @@ function tintColor(value) {
 
     let num = value.match(/\d+/g);
 
-    r = +num[0] + (0.25 * (255 - +num[0]));
-    g = +num[1] + (0.25 * (255 - +num[1]));
-    b = +num[2] + (0.25 * (255 - +num[2]));
+    let r = +num[0] + (0.25 * (255 - +num[0]));
+    let g = +num[1] + (0.25 * (255 - +num[1]));
+    let b = +num[2] + (0.25 * (255 - +num[2]));
 
     return`rgb(${r},${g},${b})`;
 }
@@ -250,9 +269,9 @@ function shadeColor(value) {
     }
     
     let num = value.match(/\d+/g);
-    r = +num[0] * .75;
-    g = +num[1] * .75;
-    b = +num[2] * .75;
+    let r = +num[0] * .75;
+    let g = +num[1] * .75;
+    let b = +num[2] * .75;
 
     return`rgb(${r},${g},${b})`;
 }
