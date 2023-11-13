@@ -180,6 +180,7 @@ function pickBackground() {
     }
 }
 
+
 function convertHexToRGB(val) {
     hex = val.replace(/^#/, '');
 
@@ -214,6 +215,7 @@ function adjustTransparency() {
     rangeSlider.style.setProperty('--canvas-color', `rgba(${r},${g},${b},${a})`);
 }
 
+
 function colorGrid() {
     if (isRgb) {
         this.style.backgroundColor = randomizeColor();
@@ -239,6 +241,8 @@ function colorGrid() {
 
 function changeColor() {
     const buttonID = this.id;
+    
+    colorPicker.classList.remove ("is-active");
 
     buttons.forEach(btn => btn.classList.remove("is-active"));
     this.classList.add("is-active");
