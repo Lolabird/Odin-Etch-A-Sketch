@@ -56,6 +56,8 @@ function resetGrid() {
     colorPicker.value = "#000000";
     colorValue = "black";
     rangeKnob.style.transform = `rotate(${gridSlider.value}deg)`;
+    transSlider.value = 1;
+    transLabel.textContent = transSlider.value
 
     getGridDimensions();
 }
@@ -142,7 +144,39 @@ function toggleGridView(gridItem) {
 
 
 function pickBackground() {
-    container.style.backgroundColor = backColorPicker.value;
+    const currentColor = container.style.backgroundColor;
+    let num = currentColor.match(/\d+/g);
+    let num2 = convertHexToRGB(backColorPicker.value);
+    let r;
+    let g;
+    let b;
+    let a;
+
+    if (currentColor.includes("rgba")) {
+        console.log(num2);
+        console.log(num)
+        r = num2[0];
+        g = num2[1];
+        b = num2[2];
+        a = num[3]+ "."+ num[4];
+        container.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+    } else {
+        container.style.backgroundColor = backColorPicker.value;
+    }
+}
+
+function convertHexToRGB(val) {
+    hex = val.replace(/^#/, '');
+
+    // Parse the hex value
+    const bigint = parseInt(hex, 16);
+
+    // Extract RGB components
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    return ([r, g, b]);
 }
 
 
@@ -159,7 +193,7 @@ function adjustTransparency() {
     b = +num[2];
     a = transSlider.value;
 
-
+    transLabel.textContent = a;
     container.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
 }
 
