@@ -62,6 +62,7 @@ function resetGrid() {
     transSlider.value = 1;
     transSlider.style.backgroundColor = "rgb(180, 254, 235)";
     rangeSlider.style.setProperty('--canvas-color', "rgb(180, 254, 235)");
+    rangeSlider.style.setProperty('--range-value', `100%`);
     transLabel.textContent = transSlider.value
 
     getGridDimensions();

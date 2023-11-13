@@ -42,9 +42,15 @@ main {
 
 footer {
     width: 100%;
+    font-size: 16px;
+    padding: 15px 0 10px;
     background-color: #111;
     opacity: .8;
     flex: 0 0 auto; 
+}
+
+a {
+    color: #b4feeb;
 }
 
 button, .container, .color-input, .knob-shadow, .range-slider {
