@@ -42,10 +42,10 @@ transSlider.addEventListener("input", adjustTransparency);
 rangeSlider.addEventListener('input', changeSliderColor);
 
 gridSlider.addEventListener("input", getGridDimensions);
-rangeKnob.addEventListener("mousedown", (e) => {
-    document.addEventListener("mousemove", rotateKnob);
-    document.addEventListener("mouseup", () => {
-        document.removeEventListener("mousemove", rotateKnob);
+rangeKnob.addEventListener("pointerdown", (e) => {
+    document.addEventListener("pointermove", rotateKnob);
+    document.addEventListener("pointerup", () => {
+        document.removeEventListener("pointermove", rotateKnob);
     });
 });
 
@@ -127,7 +127,7 @@ function createGrid() {
     const gridToggle = document.querySelector("#gridToggle");
 
     gridItems.forEach((item) => {
-        item.addEventListener("mouseover", colorGrid);
+        item.addEventListener("pointerover", colorGrid);
     });
 
     gridToggle.addEventListener("click", () => {
