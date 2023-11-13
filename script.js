@@ -58,7 +58,7 @@ function resetGrid() {
     backColorPicker.value = "#b4feeb";
     colorPicker.value = "#000000";
     colorValue = "black";
-    rangeKnob.style.transform = `rotate(${gridSlider.value}deg)`;
+    rangeKnob.style.transform = `rotate(101.309deg)`;
     transSlider.value = 1;
     transSlider.style.backgroundColor = "rgb(180, 254, 235)";
     rangeSlider.style.setProperty('--canvas-color', "rgb(180, 254, 235)");
