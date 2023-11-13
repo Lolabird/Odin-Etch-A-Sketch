@@ -51,8 +51,8 @@ rangeKnob.addEventListener("pointerdown", (e) => {
 });
 rangeKnob.addEventListener("touchstart", (e) => {
     e.preventDefault();
-    rangeKnob.addEventListener("touchmove", rotateKnob);
-    rangeKnob.addEventListener("touchend", () => {
+    document.addEventListener("touchmove", rotateKnob);
+    document.addEventListener("touchend", () => {
         document.removeEventListener("touchmove", rotateKnob);
     });
 });
@@ -84,8 +84,16 @@ function rotateKnob(e) {
         x: knobBounds.left + knobBounds.width / 2,
         y: knobBounds.top + knobBounds.height / 2
     };
-    let angle = Math.atan2(e.clientX - knobCenter.x, -(e.clientY - knobCenter.y)) * (180 / Math.PI);
+    let angle //= Math.atan2(e.clientX - knobCenter.x, -(e.clientY - knobCenter.y)) * (180 / Math.PI);
 
+    if (e.clientX) {
+        // Pointer/mouse event
+        angle = Math.atan2(e.clientX - knobCenter.x, -(e.clientY - knobCenter.y)) * (180 / Math.PI);
+    } else if (e.touches[0].clientX) {
+        // Touch event
+        angle = Math.atan2(e.touches[0].clientX - knobCenter.x, -(e.touches[0].clientY - knobCenter.y)) * (180 / Math.PI);
+    }
+    
     rangeKnob.style.transform = `rotate(${angle}deg)`;
 
     updateGridSlider(angle);
