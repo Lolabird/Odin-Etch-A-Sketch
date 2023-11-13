@@ -92,6 +92,10 @@ button:active, .container:active, .color-input:active{
     font-size: 18px;
     color: #f0fbf8;
 }
+.trans.sub-labels {
+    display: flex;
+    flex-direction: column;
+}
 
 .color-input {
     width: 120%;
@@ -111,10 +115,10 @@ button {
     height: 500px;
     width: 100%;
     max-width: 500px;
+    margin: 20px;
     display: flex;
     flex-wrap: wrap;
     background: rgb(180, 254, 235);
-    will-change: contents;
 }
 
 .grid {
@@ -221,8 +225,6 @@ input[type="range"]::-webkit-slider-runnable-track {
     margin-top: 5px;
     position: relative;
     z-index: 1;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 .knob:hover {
     box-shadow: 1px 2px 10px 1px #68ffd8;
@@ -275,6 +277,9 @@ input[type="range"]::-webkit-slider-runnable-track {
     .sub-labels {
         display: flex;
         flex-direction: column;
+    }
+    .trans.sub-labels {
+        display: block;
     }
 }
  
