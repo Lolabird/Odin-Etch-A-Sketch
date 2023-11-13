@@ -42,12 +42,21 @@ transSlider.addEventListener("input", adjustTransparency);
 rangeSlider.addEventListener('input', changeSliderColor);
 
 gridSlider.addEventListener("input", getGridDimensions);
+
 rangeKnob.addEventListener("pointerdown", (e) => {
     document.addEventListener("pointermove", rotateKnob);
     document.addEventListener("pointerup", () => {
         document.removeEventListener("pointermove", rotateKnob);
     });
 });
+rangeKnob.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    rangeKnob.addEventListener("touchmove", rotateKnob);
+    rangeKnob.addEventListener("touchend", () => {
+        document.removeEventListener("touchmove", rotateKnob);
+    });
+});
+
 
 reset.addEventListener("click", resetGrid);
 
@@ -127,6 +136,7 @@ function createGrid() {
     const gridToggle = document.querySelector("#gridToggle");
 
     gridItems.forEach((item) => {
+        item.addEventListener("touchstart", colorGrid);
         item.addEventListener("pointerover", colorGrid);
     });
 
