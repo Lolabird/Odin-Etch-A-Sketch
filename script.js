@@ -144,9 +144,26 @@ function createGrid() {
     const gridToggle = document.querySelector("#gridToggle");
 
     gridItems.forEach((item) => {
-        item.addEventListener("touchstart", colorGrid);
         item.addEventListener("pointerover", colorGrid);
     });
+    document.addEventListener("touchmove", function(e) {
+        e.preventDefault();
+
+        gridItems.forEach((item) => {
+            const rect = item.getBoundingClientRect();
+            const touch = e.touches[0];
+    
+            // Check if the touch is within the boundaries of the current grid item
+            if (
+                touch.clientX >= rect.left &&
+                touch.clientX <= rect.right &&
+                touch.clientY >= rect.top &&
+                touch.clientY <= rect.bottom
+            ) {
+                colorGrid.call(item);
+            }
+        });
+    }, {passive: false});
 
     gridToggle.addEventListener("click", () => {
         gridItems.forEach((item) => {
