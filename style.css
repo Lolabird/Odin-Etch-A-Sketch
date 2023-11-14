@@ -52,6 +52,9 @@ footer {
 a {
     color: #b4feeb;
 }
+a:hover {
+    color: #68ffd8;
+}
 
 button, .container, .color-input, .knob-shadow, .range-slider {
     box-shadow: 1px 2px 10px 1px #555;
