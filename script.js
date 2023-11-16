@@ -36,6 +36,7 @@ buttons.forEach((button) => {
 
 colorPicker.addEventListener("input", changeColor);
 colorPicker.addEventListener("change", changeColor);
+colorPicker.addEventListener("click", changeColor);
 backColorPicker.addEventListener("input", pickBackground);
 
 transSlider.addEventListener("input", adjustTransparency);
