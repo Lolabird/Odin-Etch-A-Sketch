@@ -270,6 +270,7 @@ function colorGrid() {
         this.style.backgroundColor = "rgb(255, 255, 255)";
     } else if (isErase) {
         this.style.backgroundColor = "";
+        this.style.opacity = 0.9;
     } else {
         this.style.backgroundColor = colorPicker.value;
     }
