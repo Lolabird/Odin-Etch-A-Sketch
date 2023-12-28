@@ -54,6 +54,7 @@ a {
 }
 a:hover {
     color: #68ffd8;
+    text-decoration: none;
 }
 
 button, .container, .color-input, .knob-shadow, .range-slider {
